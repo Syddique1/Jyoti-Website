@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Book a Session — Divine Light Reiki</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,300;1,6..72,400;1,6..72,600;1,6..72,700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+
+  <!-- AOS Animate On Scroll -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-container": "#fdc2a1",
+            "on-tertiary-fixed": "#405034",
+            "surface-container-high": "#f0eee4",
+            "on-primary-fixed-variant": "#6e452b",
+            "on-secondary-fixed-variant": "#47636d",
+            "surface-bright": "#fffcf7",
+            "surface-dim": "#e4e3d6",
+            "on-surface": "#373831",
+            "inverse-on-surface": "#9e9d98",
+            "surface-container": "#f6f4ec",
+            "primary-fixed": "#fdc2a1",
+            "surface-variant": "#eae9dd",
+            "surface-tint": "#875a3f",
+            "background": "#fffcf7",
+            "error": "#b23d21",
+            "on-surface-variant": "#64655c",
+            "tertiary-fixed-dim": "#dbeec9",
+            "primary": "#875a3f",
+            "on-secondary-fixed": "#2b4750",
+            "tertiary": "#59694b",
+            "on-secondary": "#ffffff",
+            "tertiary-dim": "#4d5d40",
+            "tertiary-fixed": "#eafdd6",
+            "error-container": "#fa7150",
+            "inverse-primary": "#fdc2a1",
+            "surface": "#fffcf7",
+            "surface-container-highest": "#eae9dd",
+            "surface-container-low": "#fcf9f3",
+            "on-primary-fixed": "#4d2912",
+            "on-tertiary-container": "#526245",
+            "secondary-fixed-dim": "#c1dfeb",
+            "primary-dim": "#794e34",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed": "#cfedf9",
+            "outline": "#818178",
+            "on-error-container": "#671200",
+            "on-primary-container": "#633c23",
+            "on-secondary-container": "#3d5963",
+            "outline-variant": "#babaaf",
+            "on-primary": "#ffffff",
+            "error-dim": "#821a01",
+            "secondary-container": "#cfedf9",
+            "tertiary-container": "#eafdd6",
+            "surface-container-lowest": "#ffffff",
+            "inverse-surface": "#0e0e0c",
+            "on-error": "#ffffff",
+            "secondary-dim": "#405c66",
+            "on-tertiary-fixed-variant": "#5c6d4f",
+            "secondary": "#4d6973",
+            "on-background": "#373831",
+            "primary-fixed-dim": "#eeb594"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["Newsreader", "serif"],
+            body: ["Manrope", "sans-serif"],
+            label: ["Manrope", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      background-color: #fffcf7;
+      color: #373831;
+      overflow-x: hidden;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* ── Ambient orb keyframes ── */
+    @keyframes orb-drift {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      25% {
+        transform: translate(22px, -28px) scale(1.04);
+      }
+
+      50% {
+        transform: translate(-12px, -14px) scale(0.97);
+      }
+
+      75% {
+        transform: translate(18px, 12px) scale(1.02);
+      }
+    }
+
+    @keyframes float-slow {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    @keyframes float-alt {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(-1deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(1deg);
+      }
+    }
+
+    @keyframes hero-pan {
+      0% {
+        transform: scale(1.12) translate(0, 0);
+      }
+
+      100% {
+        transform: scale(1.20) translate(-1.2%, -1.8%);
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -300% center;
+      }
+
+      100% {
+        background-position: 300% center;
+      }
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        opacity: 0.35;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.65;
+        transform: scale(1.12);
+      }
+    }
+
+    @keyframes scroll-hint {
+
+      0%,
+      100% {
+        transform: translateY(0);
+        opacity: 0.7;
+      }
+
+      50% {
+        transform: translateY(10px);
+        opacity: 0.2;
+      }
+    }
+
+    @keyframes fade-up-in {
+      from {
+        opacity: 0;
+        transform: translateY(36px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes rotate-ring {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ── Orbs ── */
+    .orb-a {
+      animation: orb-drift 20s ease-in-out infinite;
+    }
+
+    .orb-b {
+      animation: orb-drift 16s ease-in-out infinite reverse;
+      animation-delay: -6s;
+    }
+
+    .orb-c {
+      animation: orb-drift 24s ease-in-out infinite;
+      animation-delay: -10s;
+    }
+
+    /* ── Hero ── */
+    .hero-img {
+      animation: hero-pan 22s ease-in-out alternate infinite;
+    }
+
+    .hero-badge {
+      animation: fade-up-in .8s cubic-bezier(.4, 0, .2, 1) .2s both;
+    }
+
+    .hero-h1 {
+      animation: fade-up-in .9s cubic-bezier(.4, 0, .2, 1) .4s both;
+    }
+
+    .hero-cta {
+      animation: fade-up-in .9s cubic-bezier(.4, 0, .2, 1) .6s both;
+    }
+
+    .hero-stats {
+      animation: fade-up-in .9s cubic-bezier(.4, 0, .2, 1) .8s both;
+    }
+
+    .scroll-hint {
+      animation: scroll-hint 2s ease-in-out infinite;
+    }
+
+    /* ── Float cards ── */
+    .fc-1 {
+      animation: float-slow 7s ease-in-out infinite;
+    }
+
+    .fc-2 {
+      animation: float-alt 9s ease-in-out infinite;
+      animation-delay: -3s;
+    }
+
+    /* ── Glassmorphism nav ── */
+    .glass-nav {
+      background: rgba(255, 252, 247, .78);
+      backdrop-filter: blur(28px) saturate(200%);
+      -webkit-backdrop-filter: blur(28px) saturate(200%);
+      border-bottom: 1px solid rgba(186, 186, 175, .14);
+      transition: padding .4s cubic-bezier(.4, 0, .2, 1), box-shadow .4s;
+    }
+
+    .glass-nav.scrolled {
+      box-shadow: 0 4px 32px -8px rgba(55, 56, 49, .08);
+    }
+
+    /* ── Custom scrollbar ── */
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #fffcf7;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #875a3f;
+      border-radius: 2px;
+    }
+
+    /* ── Nav link hover underline ── */
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #875a3f;
+      transition: width .45s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* ── Bento hover ── */
+    .bento-card {
+      transition: transform .5s cubic-bezier(.4, 0, .2, 1),
+        box-shadow .5s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .bento-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 28px 64px -12px rgba(55, 56, 49, .09);
+    }
+
+    /* ── Session cards ── */
+    .session-card {
+      transition: transform .5s cubic-bezier(.4, 0, .2, 1),
+        box-shadow .5s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .session-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 36px 80px -16px rgba(135, 90, 63, .18);
+    }
+
+    /* ── Featured pricing gradient ── */
+    .pricing-featured {
+      background: linear-gradient(145deg, #875a3f 0%, #6e452b 100%);
+    }
+
+    /* ── Quote decoration ── */
+    .quote-deco {
+      font-family: 'Newsreader', serif;
+      font-size: 7rem;
+      line-height: .5;
+      color: #fdc2a1;
+      opacity: .35;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* ── Testimonial glass card ── */
+    .t-card {
+      background: rgba(255, 252, 247, .72);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(186, 186, 175, .22);
+    }
+
+    /* ── Blog hover ── */
+    .blog-thumb {
+      overflow: hidden;
+    }
+
+    .blog-thumb img {
+      transition: transform .75s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .blog-card:hover .blog-thumb img {
+      transform: scale(1.08);
+    }
+
+    /* ── Editorial image layer ── */
+    .editorial {
+      position: relative;
+    }
+
+    .editorial::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(155deg, rgba(253, 194, 161, .08) 0%, transparent 55%);
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── Section label pill ── */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::before,
+    .section-label::after {
+      content: '';
+      display: block;
+      width: 2.5rem;
+      height: 1px;
+      background: rgba(135, 90, 63, .35);
+    }
+
+    /* ── Stat numbers ── */
+    .stat-n {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+    }
+
+    /* ── Glow divider ── */
+    .glow-rule {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(135, 90, 63, .25), transparent);
+    }
+
+    /* ── CTA ambient orbs ── */
+    .cta-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      animation: pulse-glow 7s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* ── Step connector ── */
+    .step-connector {
+      width: 1px;
+      height: 2rem;
+      background: linear-gradient(to bottom, rgba(135, 90, 63, .2), transparent);
+      margin-left: 1.2rem;
+    }
+
+    /* ── Shimmer text ── */
+    .shimmer-text {
+      background: linear-gradient(120deg, #ffeaa8 0%, #ffffff 45%, #ffd58a 100%);
+      background-size: 250% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 5s linear infinite;
+      filter: drop-shadow(0 0 24px rgba(255, 234, 168, 0.5));
+    }
+
+    /* ── Ring decoration ── */
+    .ring-deco {
+      border: 1px solid rgba(135, 90, 63, .12);
+      border-radius: 50%;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .ring-slow {
+      animation: rotate-ring 40s linear infinite;
+    }
+
+    .ring-slower {
+      animation: rotate-ring 60s linear infinite reverse;
+    }
+  </style>
+</head>
+
+<body class="bg-background selection:bg-primary-container selection:text-on-primary-container">
+
+  <!-- ═══════════════════════════════════════ NAV ═══════════════════════════════════════ -->
+  <nav id="main-nav" class="glass-nav fixed top-0 w-full z-50">
+    <div id="nav-inner"
+      class="flex justify-between items-center px-8 py-5 w-full max-w-screen-2xl mx-auto transition-all duration-400">
+      <a class="font-headline text-primary tracking-tighter italic text-3xl font-bold" href="index.html">Divine Light Reiki</a>
+
+      <div class="hidden md:flex items-center space-x-10">
+        <a class="nav-link text-primary font-label uppercase tracking-widest text-xs pb-1" href="healings.html">Healings</a>
+        <a class="nav-link text-on-surface-variant font-label uppercase tracking-widest text-xs pb-1 hover:text-primary transition-colors duration-400"
+          href="classes.html">Classes</a>
+        <a class="nav-link text-on-surface-variant font-label uppercase tracking-widest text-xs pb-1 hover:text-primary transition-colors duration-400"
+          href="about.html">About</a>
+        <a class="nav-link text-on-surface-variant font-label uppercase tracking-widest text-xs pb-1 hover:text-primary transition-colors duration-400"
+          href="journal.html">Journal</a>
+        <a class="nav-link text-on-surface-variant font-label uppercase tracking-widest text-xs pb-1 hover:text-primary transition-colors duration-400"
+          href="contact.html">Contact</a>
+      </div>
+
+      <button onclick="window.location.href='book.html'"
+        class="bg-primary text-on-primary px-8 py-3 rounded-full font-label font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-primary-dim hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/25 active:opacity-75">
+        Book Session
+      </button>
+    </div>
+  </nav>
+
+  <main class="pt-32 min-h-screen">
+
+    <section class="py-12 px-8 max-w-6xl mx-auto min-h-[80vh] flex flex-col items-center justify-center">
+      
+      <div class="text-center mb-12" data-aos="fade-up">
+        <div class="section-label font-label text-xs uppercase tracking-[0.42em] text-primary/70 mb-5">Reserve</div>
+        <h1 class="font-headline text-5xl md:text-6xl text-on-surface italic mb-4">Book Your Session</h1>
+        <p class="text-on-surface-variant font-body max-w-xl mx-auto">Select a date and time that aligns with your energy. All times are displayed in your local timezone.</p>
+      </div>
+
+      <!-- This container is designed to be easily swapped with a GoHighLevel iframe later -->
+      <div id="booking-widget-container" class="w-full max-w-5xl bg-surface-container-lowest border border-outline-variant/20 rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row" data-aos="fade-up" data-aos-delay="100">
+        
+        <!-- Left Panel: Session Details -->
+        <div class="w-full md:w-1/3 bg-surface-container p-10 border-r border-outline-variant/10">
+           <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8">
+              <span class="material-symbols-outlined text-primary text-3xl">spa</span>
+           </div>
+           <h3 class="font-headline text-3xl italic text-on-surface mb-2">Clarity Session</h3>
+           <p class="text-on-surface-variant text-sm font-label font-bold uppercase tracking-widest mb-6">45 Minutes • $85</p>
+           <p class="text-sm text-on-surface-variant leading-relaxed mb-8">A gentle healing focused on releasing mental fog and emotional stagnation.</p>
+           
+           <div class="flex items-center gap-3 text-sm text-on-surface-variant mb-3">
+             <span class="material-symbols-outlined text-[18px]">videocam</span> Google Meet / Zoom
+           </div>
+           <div class="flex items-center gap-3 text-sm text-on-surface-variant">
+             <span class="material-symbols-outlined text-[18px]">public</span> Sedona, AZ (or Distance)
+           </div>
+        </div>
+
+        <!-- Right Panel: The Calendar UI -->
+        <div class="w-full md:w-2/3 p-10 relative">
+           
+           <div class="flex justify-between items-center mb-8">
+             <h4 class="font-headline text-2xl text-on-surface">May 2026</h4>
+             <div class="flex gap-2">
+               <button class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+               <button class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+             </div>
+           </div>
+
+           <!-- Calendar Grid -->
+           <div class="grid grid-cols-7 gap-y-4 gap-x-2 text-center mb-8">
+             <div class="text-[10px] uppercase tracking-widest text-outline font-bold mb-2">Sun</div>
+             <div class="text-[10px] uppercase tracking-widest text-outline font-bold mb-2">Mon</div>
+             <div class="text-[10px] uppercase tracking-widest text-outline font-bold mb-2">Tue</div>
+             <div class="text-[10px] uppercase tracking-widest text-outline font-bold mb-2">Wed</div>
+             <div class="text-[10px] uppercase tracking-widest text-outline font-bold mb-2">Thu</div>
+             <div class="text-[10px] uppercase tracking-widest text-outline font-bold mb-2">Fri</div>
+             <div class="text-[10px] uppercase tracking-widest text-outline font-bold mb-2">Sat</div>
+
+             <!-- Empty slots for offset -->
+             <div></div><div></div><div></div><div></div><div></div>
+
+             <!-- Days -->
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">1</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">2</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">3</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">4</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">5</button>
+             
+             <!-- Selected Day -->
+             <button class="aspect-square flex items-center justify-center rounded-full bg-primary text-on-primary text-sm font-bold shadow-lg shadow-primary/30">6</button>
+             
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">7</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">8</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">9</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">10</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">11</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">12</button>
+             <button class="aspect-square flex items-center justify-center rounded-full text-sm font-medium text-outline/40 cursor-not-allowed" disabled>13</button>
+             <button class="aspect-square flex items-center justify-center rounded-full text-sm font-medium text-outline/40 cursor-not-allowed" disabled>14</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">15</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">16</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">17</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">18</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">19</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">20</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">21</button>
+             <button class="aspect-square flex items-center justify-center rounded-full text-sm font-medium text-outline/40 cursor-not-allowed" disabled>22</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">23</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">24</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">25</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">26</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">27</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">28</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">29</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">30</button>
+             <button class="aspect-square flex items-center justify-center rounded-full hover:bg-surface-container text-sm font-medium transition-colors">31</button>
+           </div>
+
+           <div class="h-px w-full bg-outline-variant/20 mb-8"></div>
+
+           <!-- Time Slots for Selected Day -->
+           <h4 class="font-label text-sm font-bold text-on-surface mb-4">Wednesday, May 6</h4>
+           <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+             <button class="py-3 border border-primary text-primary rounded-xl font-bold text-sm bg-primary/5 hover:bg-primary hover:text-on-primary transition-all text-center">9:00 AM</button>
+             <button class="py-3 border border-outline-variant/30 text-on-surface rounded-xl font-medium text-sm hover:border-primary hover:text-primary transition-all text-center">10:30 AM</button>
+             <button class="py-3 border border-outline-variant/30 text-on-surface rounded-xl font-medium text-sm hover:border-primary hover:text-primary transition-all text-center">1:00 PM</button>
+             <button class="py-3 border border-outline-variant/30 text-on-surface rounded-xl font-medium text-sm hover:border-primary hover:text-primary transition-all text-center">3:30 PM</button>
+           </div>
+
+           <!-- Mock Confirmation -->
+           <div class="mt-12 flex justify-end">
+             <button onclick="alert('This beautiful custom UI will later be replaced directly by your GoHighLevel embed code!')" class="bg-on-surface text-surface px-10 py-4 rounded-full font-bold shadow-xl hover:-translate-y-1 transition-all flex items-center gap-2">
+                Continue <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+             </button>
+           </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════ FOOTER ═══════════════════════════════════════ -->
+  <footer class="w-full bg-surface-container">
+    <hr class="glow-rule mx-0" />
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 w-full max-w-screen-2xl mx-auto">
+
+      <div class="md:col-span-1">
+        <p class="text-xl font-headline italic text-primary mb-4">Divine Light Reiki</p>
+        <p class="text-xs text-outline/75 font-body leading-relaxed mb-8 max-w-[230px]">
+          Guided energy healing for the modern soul. Discover your path to inner stillness.
+        </p>
+        <div class="flex gap-3">
+          <a class="w-9 h-9 bg-surface-container-high rounded-full flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all duration-400"
+            href="#" aria-label="Link">
+            <span class="material-symbols-outlined" style="font-size:16px;">link</span>
+          </a>
+          <a class="w-9 h-9 bg-surface-container-high rounded-full flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all duration-400"
+            href="#" aria-label="Share">
+            <span class="material-symbols-outlined" style="font-size:16px;">share</span>
+          </a>
+          <a class="w-9 h-9 bg-surface-container-high rounded-full flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all duration-400"
+            href="#" aria-label="Email">
+            <span class="material-symbols-outlined" style="font-size:16px;">mail</span>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-label uppercase tracking-[0.25em] text-[10px] font-bold text-outline mb-6">Quick Links</h4>
+        <ul class="space-y-3">
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors duration-400 font-body text-sm"
+              href="healings.html">Healings</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors duration-400 font-body text-sm"
+              href="classes.html">Classes</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors duration-400 font-body text-sm"
+              href="about.html">About Jyoti</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors duration-400 font-body text-sm"
+              href="journal.html">The Journal</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-label uppercase tracking-[0.25em] text-[10px] font-bold text-outline mb-6">Support</h4>
+        <ul class="space-y-3">
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors duration-400 font-body text-sm"
+              href="#">Privacy Policy</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors duration-400 font-body text-sm"
+              href="#">Terms of Service</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors duration-400 font-body text-sm"
+              href="#">Healing Disclaimer</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors duration-400 font-body text-sm"
+              href="#">Sustainability</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-label uppercase tracking-[0.25em] text-[10px] font-bold text-outline mb-6">Contact</h4>
+        <p class="text-on-surface-variant text-sm font-body mb-3">studio@divinelightreiki.com</p>
+        <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">122 Zen Garden Way,<br />Sedona, AZ
+          86336</p>
+        <p class="text-[10px] uppercase tracking-widest text-outline mb-2">Hours</p>
+        <p class="text-on-surface-variant text-xs font-body">Mon–Fri: 9am – 6pm MST</p>
+        <p class="text-on-surface-variant text-xs font-body">Sat: 10am – 4pm MST</p>
+      </div>
+
+    </div>
+
+    <hr class="glow-rule mx-12" />
+    <div class="px-12 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-outline font-body">© 2024 Divine Light Reiki. A Digital Sanctuary.</p>
+      <p class="text-xs text-outline/55 font-body font-headline italic">Made with light &amp; love in Sedona, AZ</p>
+    </div>
+  </footer>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 720,
+      easing: 'ease-out-quart',
+      once: true,
+      offset: 56,
+    });
+
+    // Nav compact on scroll
+    const nav = document.getElementById('main-nav');
+    const inner = document.getElementById('nav-inner');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+        inner.style.paddingTop = '14px';
+        inner.style.paddingBottom = '14px';
+      } else {
+        nav.classList.remove('scrolled');
+        inner.style.paddingTop = '';
+        inner.style.paddingBottom = '';
+      }
+    }, { passive: true });
+  </script>
+
+</body>
+
+</html>
