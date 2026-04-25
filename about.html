@@ -446,7 +446,14 @@
       width: 1px;
       height: 2rem;
       background: linear-gradient(to bottom, rgba(135, 90, 63, .2), transparent);
-      margin-left: 1.2rem;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .step-connector {
+        margin-left: 1.2rem;
+        margin-right: 0;
+      }
     }
 
     /* ── Shimmer text ── */
@@ -480,30 +487,50 @@
 
 <body class="bg-background selection:bg-primary-container selection:text-on-primary-container">
 
-  <!-- ═══════════════════════════════════════ NAV ═══════════════════════════════════════ -->
-  <nav id="main-nav" class="glass-nav fixed top-0 w-full z-50">
-    <div id="nav-inner"
-      class="flex justify-between items-center px-8 py-5 w-full max-w-screen-2xl mx-auto transition-all duration-400">
-      <a class="font-headline text-primary tracking-tighter italic text-3xl font-bold" href="index.html">Divine Light Reiki</a>
+  <!-- ═══════════════════════════════════════ HEADER ═══════════════════════════════════════ -->
+  <header id="site-header" class="relative z-50">
+    <nav id="main-nav" class="glass-nav fixed top-0 w-full z-50">
+      <div id="nav-inner"
+        class="flex justify-between items-center px-8 py-5 w-full max-w-screen-2xl mx-auto transition-all duration-400">
+        <a class="font-headline text-primary tracking-tighter italic text-2xl sm:text-3xl font-bold whitespace-nowrap" href="index.html">Divine Light Reiki</a>
 
-      <div class="hidden md:flex items-center space-x-10">
-        <a class="nav-link text-primary font-label uppercase tracking-widest text-xs pb-1" href="healings.html">Healings</a>
-        <a class="nav-link text-on-surface-variant font-label uppercase tracking-widest text-xs pb-1 hover:text-primary transition-colors duration-400"
-          href="classes.html">Classes</a>
-        <a class="nav-link text-on-surface-variant font-label uppercase tracking-widest text-xs pb-1 hover:text-primary transition-colors duration-400"
-          href="about.html">About</a>
-        <a class="nav-link text-on-surface-variant font-label uppercase tracking-widest text-xs pb-1 hover:text-primary transition-colors duration-400"
-          href="journal.html">Journal</a>
-        <a class="nav-link text-on-surface-variant font-label uppercase tracking-widest text-xs pb-1 hover:text-primary transition-colors duration-400"
-          href="contact.html">Contact</a>
+        <div class="hidden lg:flex items-center space-x-10">
+          <a class="nav-link text-primary font-label uppercase tracking-widest text-xs pb-1" href="healings.html">Healings</a>
+          <a class="nav-link text-on-surface-variant font-label uppercase tracking-widest text-xs pb-1 hover:text-primary transition-colors duration-400"
+            href="classes.html">Classes</a>
+          <a class="nav-link text-on-surface-variant font-label uppercase tracking-widest text-xs pb-1 hover:text-primary transition-colors duration-400"
+            href="about.html">About</a>
+          <a class="nav-link text-on-surface-variant font-label uppercase tracking-widest text-xs pb-1 hover:text-primary transition-colors duration-400"
+            href="journal.html">Journal</a>
+          <a class="nav-link text-on-surface-variant font-label uppercase tracking-widest text-xs pb-1 hover:text-primary transition-colors duration-400"
+            href="contact.html">Contact</a>
+        </div>
+
+        <button onclick="window.location.href='book.html'"
+          class="hidden lg:block bg-primary text-on-primary px-8 py-3 rounded-full font-label font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-primary-dim hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/25 active:opacity-75">
+          Book Session
+        </button>
+
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="lg:hidden text-primary p-2 focus:outline-none">
+          <span class="material-symbols-outlined" style="font-size:32px;">menu</span>
+        </button>
       </div>
+    </nav>
 
-      <button onclick="window.location.href='book.html'"
-        class="bg-primary text-on-primary px-8 py-3 rounded-full font-label font-semibold text-sm tracking-wide transition-all duration-500 hover:bg-primary-dim hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/25 active:opacity-75">
-        Book Session
-      </button>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#fffcf7] z-[60] flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-all duration-500 overflow-y-auto pt-20 pb-10">
+       <button id="mobile-menu-close" class="absolute top-6 right-8 text-primary p-2 focus:outline-none">
+         <span class="material-symbols-outlined" style="font-size:32px;">close</span>
+       </button>
+       <a class="font-headline italic text-4xl text-on-surface hover:text-primary transition-colors duration-400" href="healings.html">Healings</a>
+       <a class="font-headline italic text-4xl text-on-surface hover:text-primary transition-colors duration-400" href="classes.html">Classes</a>
+       <a class="font-headline italic text-4xl text-on-surface hover:text-primary transition-colors duration-400" href="about.html">About</a>
+       <a class="font-headline italic text-4xl text-on-surface hover:text-primary transition-colors duration-400" href="journal.html">Journal</a>
+       <a class="font-headline italic text-4xl text-on-surface hover:text-primary transition-colors duration-400" href="contact.html">Contact</a>
+       <button onclick="window.location.href='book.html'" class="mt-6 bg-primary text-on-primary px-10 py-4 rounded-full font-label font-bold text-lg hover:bg-primary-dim transition-all shadow-xl shadow-primary/20">Book Session</button>
     </div>
-  </nav>
+  </header>
 
   <main class="pt-32 min-h-screen">
 
@@ -526,7 +553,7 @@
   <!-- ═══════════════════════════════════════ FOOTER ═══════════════════════════════════════ -->
   <footer class="w-full bg-surface-container">
     <hr class="glow-rule mx-0" />
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 w-full max-w-screen-2xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-6 md:px-12 py-20 w-full max-w-screen-2xl mx-auto">
 
       <div class="md:col-span-1">
         <p class="text-xl font-headline italic text-primary mb-4">Divine Light Reiki</p>
@@ -549,7 +576,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="text-center md:text-left">
         <h4 class="font-label uppercase tracking-[0.25em] text-[10px] font-bold text-outline mb-6">Quick Links</h4>
         <ul class="space-y-3">
           <li><a class="text-on-surface-variant hover:text-primary transition-colors duration-400 font-body text-sm"
@@ -563,7 +590,7 @@
         </ul>
       </div>
 
-      <div>
+      <div class="text-center md:text-left">
         <h4 class="font-label uppercase tracking-[0.25em] text-[10px] font-bold text-outline mb-6">Support</h4>
         <ul class="space-y-3">
           <li><a class="text-on-surface-variant hover:text-primary transition-colors duration-400 font-body text-sm"
@@ -577,7 +604,7 @@
         </ul>
       </div>
 
-      <div>
+      <div class="text-center md:text-left">
         <h4 class="font-label uppercase tracking-[0.25em] text-[10px] font-bold text-outline mb-6">Contact</h4>
         <p class="text-on-surface-variant text-sm font-body mb-3">studio@divinelightreiki.com</p>
         <p class="text-on-surface-variant text-sm font-body leading-relaxed mb-6">122 Zen Garden Way,<br />Sedona, AZ
@@ -589,8 +616,8 @@
 
     </div>
 
-    <hr class="glow-rule mx-12" />
-    <div class="px-12 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <hr class="glow-rule mx-6 md:mx-12" />
+    <div class="px-6 md:px-12 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
       <p class="text-xs text-outline font-body">© 2024 Divine Light Reiki. A Digital Sanctuary.</p>
       <p class="text-xs text-outline/55 font-body font-headline italic">Made with light &amp; love in Sedona, AZ</p>
     </div>
@@ -620,6 +647,25 @@
         inner.style.paddingBottom = '';
       }
     }, { passive: true });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenuClose && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+        mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+        document.body.style.overflow = 'hidden';
+      });
+
+      mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+        document.body.style.overflow = '';
+      });
+    }
   </script>
 
 </body>

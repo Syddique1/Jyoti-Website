@@ -4,7 +4,7 @@ const path = require('path');
 const indexFile = path.join(__dirname, 'index.html');
 const content = fs.readFileSync(indexFile, 'utf8');
 
-const navEndIndex = content.indexOf('</nav>') + 6;
+const navEndIndex = content.indexOf('</header>') + 9;
 const footerStartIndex = content.indexOf('<!-- ═══════════════════════════════════════ FOOTER');
 
 const headAndNav = content.substring(0, navEndIndex);
